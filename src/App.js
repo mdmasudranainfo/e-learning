@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import Blog from "./Components/Blog/Blog";
+import CheckOut from "./Components/CheckOut/CheckOut";
 import CourseDit from "./Components/CourseDit/CourseDit";
 import Course from "./Components/Courses/Course";
 import FaQ from "./Components/FAq/FaQ";
@@ -53,13 +54,17 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/data/${params.id}`),
       },
+      {
+        path: "/checkout",
+        element: <CheckOut></CheckOut>,
+      },
     ],
   },
 ]);
 
 function App() {
   return (
-    <div className="App">
+    <div className="">
       <RouterProvider router={router}></RouterProvider>
     </div>
   );

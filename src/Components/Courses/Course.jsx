@@ -13,13 +13,13 @@ const Course = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-3 container mx-auto">
+    <div className="grid lg:grid-cols-3 sm:grid-cols-1 md:mx-4  container mx-auto">
       <div className="">
         {data.map((Cours) => (
           <Cart key={Cours.id} Cours={Cours}></Cart>
         ))}
       </div>
-      <div className="col-span-2 grid grid-cols-3 gap-3">
+      <div className="col-span-2  grid lg:grid-cols-3 md:grid-cols-3 sm:mx-5 gap-3">
         {data.map((Single) => (
           <SingleCourse key={Single.id} Single={Single}></SingleCourse>
         ))}
