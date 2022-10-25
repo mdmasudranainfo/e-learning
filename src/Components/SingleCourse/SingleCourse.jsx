@@ -14,7 +14,9 @@ const SingleCourse = ({ Single }) => {
         <p className="p-0 m-0"> {Single.lectures}</p>
 
         <div className="card-actions justify-end">
-          <Link className="btn btn-primary">Course Details</Link>
+          <Link to={`/courses/${Single.id}`} className="btn btn-primary">
+            Course Details
+          </Link>
         </div>
       </div>
     </div>
