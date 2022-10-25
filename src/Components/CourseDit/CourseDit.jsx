@@ -3,7 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const CourseDit = () => {
   const data = useLoaderData();
-  console.log(data);
+
   const {
     instructor_name,
     course_thumb,
@@ -12,6 +12,7 @@ const CourseDit = () => {
     rating,
     subject,
     watch_time,
+    id,
   } = data;
 
   return (
@@ -43,7 +44,8 @@ const CourseDit = () => {
           : {rating}
         </p>
         <div className="card-actions justify-end">
-          <Link to="/checkout" className="btn btn-primary">
+          <button className="btn btn-primary">Download PDF</button>
+          <Link to={`/checkout/${id}`} className="btn btn-primary">
             Get Premium Access
           </Link>
         </div>

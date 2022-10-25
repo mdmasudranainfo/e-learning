@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SingleCourse = ({ Single }) => {
-  console.log(Single);
   return (
     <div className="card bg-base-100 shadow-xl">
       <figure>
