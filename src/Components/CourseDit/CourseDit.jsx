@@ -10,8 +10,10 @@ const CourseDit = () => {
     title,
     lectures,
     rating,
-    subject,
+
     watch_time,
+    student,
+    advance_price,
     id,
   } = data;
 
@@ -25,7 +27,8 @@ const CourseDit = () => {
         <p>Instructor: {instructor_name}</p>
         <p>Lectures: {lectures}</p>
         <p>watch time: {watch_time}</p>
-        <p>Subject: {subject}</p>
+        <p>Student: {student}</p>
+        <p>Price: {advance_price}</p>
         <p>
           <svg
             xmlns="http://www.w3.org/2000/svg"

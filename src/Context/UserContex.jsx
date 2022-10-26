@@ -29,7 +29,7 @@ const auth = getAuth(app);
 const UserContex = ({ children }) => {
   //
   const [user, setUSer] = useState([]);
-  const [loader, setLoader] = useState();
+  const [loader, setLoader] = useState(true);
 
   //
   //
@@ -58,9 +58,11 @@ const UserContex = ({ children }) => {
   };
   // crrent user track
   useEffect(() => {
-    onAuthStateChanged(auth, (currentUSer) => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUSer) => {
       setUSer(currentUSer);
+      setLoader(false);
     });
+    return () => unsubscribe();
     //
     //
   }, []);
@@ -71,6 +73,7 @@ const UserContex = ({ children }) => {
   };
 
   const userInfo = {
+    loader,
     googleLogin,
     user,
     logOut,
