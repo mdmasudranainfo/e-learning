@@ -1,7 +1,23 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import toast from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Context/UserContex";
 
 const NavBar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  // console.log(user);
+  //
+
+  //
+  const singOut = () => {
+    logOut()
+      .then(() => {
+        //
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  };
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -93,9 +109,38 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to="/login" className="btn">
-            LogIn
-          </Link>
+          {user ? (
+            <div className="dropdown dropdown-left">
+              <label tabIndex={0} className="btn m-1">
+                <img
+                  src={user?.photoURL}
+                  className="object-cover w-full h-full rounded-t"
+                  alt="Plan"
+                />
+              </label>
+              <ul
+                tabIndex={0}
+                className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <Link>{user?.displayName}</Link>
+                </li>
+                <li>
+                  <Link onClick={singOut}>LogOut</Link>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            // <img
+            //   className="rounded-full"
+            //   width={50}
+            //   height={50}
+            //   src={user.photoURL}
+            // />
+            <Link to="/login" className="btn">
+              LogIn
+            </Link>
+          )}
         </div>
       </div>
     </div>

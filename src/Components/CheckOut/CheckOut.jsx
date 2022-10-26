@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 
 const CheckOut = () => {
   const data = useLoaderData();
-  console.log(data);
+  // console.log(data);
   const { title, advance_price } = data;
   return (
     <div className="my-10 mb-64 text-center">
