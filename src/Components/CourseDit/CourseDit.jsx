@@ -34,8 +34,11 @@ const CourseDit = () => {
         <p>Lectures: {lectures}</p>
         <p>watch time: {watch_time}</p>
         <p>Student: {student}</p>
-        <p>Price: {advance_price}</p>
+        <p>Price: {advance_price}$</p>
+        <p>ID: {id}</p>
         <p>
+          {" "}
+          Rating
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
