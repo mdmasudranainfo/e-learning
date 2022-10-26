@@ -28,7 +28,7 @@ const CourseDit = () => {
       <figure className=" lg:w-6/12 sm:w-12/12">
         <img src={course_thumb} alt="Album" />
       </figure>
-      <div className="card-body w-6/12">
+      <div className="card-body lg:w-6/12 md:w-12/12">
         <h2 className="card-title">{title}</h2>
         <p>Instructor: {instructor_name}</p>
         <p>Lectures: {lectures}</p>

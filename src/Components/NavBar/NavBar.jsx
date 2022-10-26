@@ -113,6 +113,7 @@ const NavBar = () => {
             <div className="dropdown dropdown-left">
               <label tabIndex={0} className="btn bg-white m-1">
                 <img
+                  title={user?.displayName}
                   src={user?.photoURL}
                   className="object-cover w-full h-full rounded-full"
                   alt="Plan"

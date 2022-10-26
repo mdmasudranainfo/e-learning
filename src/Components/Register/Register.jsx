@@ -7,7 +7,7 @@ import { AuthContext } from "../../Context/UserContex";
 
 const Register = () => {
   //
-  const { Register, updateName } = useContext(AuthContext);
+  const { Register, updateName, logOut } = useContext(AuthContext);
   //
   const formSubmit = (event) => {
     event.preventDefault();
@@ -32,6 +32,7 @@ const Register = () => {
           .then(() => {
             toast.success("Successfully Register");
             form.reset();
+            logOut();
           })
           .catch((error) => {
             const errorMessage = error.message;
@@ -48,7 +49,7 @@ const Register = () => {
 
         // ..
       });
-    console.log(name, email, PhotoURL, password);
+    // console.log(name, email, PhotoURL, password);
   };
   return (
     <div>
