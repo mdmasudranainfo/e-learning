@@ -10,6 +10,7 @@ import Home from "./Components/Home/Home";
 import Main from "./Components/Layout/Main";
 import Login from "./Components/Login/Login";
 import Register from "./Components/Register/Register";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 //
 //
@@ -57,7 +58,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/checkout/:id",
-        element: <CheckOut></CheckOut>,
+        element: (
+          <PrivateRoute>
+            <CheckOut></CheckOut>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/data/${params.id}`),
       },

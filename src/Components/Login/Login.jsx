@@ -1,13 +1,15 @@
 import React from "react";
 import { useContext } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/UserContex";
 
 const Login = () => {
   const { loginUser } = useContext(AuthContext);
   //
-  const navigate = useNavigate();
+  const Navigate = useNavigate();
+  let location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   // console.log(userInfo);
   const formSubmit = (event) => {
     event.preventDefault();
@@ -24,7 +26,7 @@ const Login = () => {
         const user = result.user;
         toast.success("Successfully toasted!");
         // console.log(user);
-        navigate("/courses/");
+        Navigate(from, { replace: true });
         // updateProfile
       })
       .catch((error) => {
