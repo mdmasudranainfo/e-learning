@@ -1,6 +1,9 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import ReactDOM from "react-dom";
+import Pdf from "react-to-pdf";
 
+const ref = React.createRef();
 const CourseDit = () => {
   const data = useLoaderData();
 
@@ -18,7 +21,10 @@ const CourseDit = () => {
   } = data;
 
   return (
-    <div className="card lg:card-side bg-base-100 shadow-xl my-8 w-8/12   mx-auto">
+    <div
+      ref={ref}
+      className="card lg:card-side bg-base-100 shadow-xl my-8 w-8/12   mx-auto"
+    >
       <figure className=" lg:w-6/12 sm:w-12/12">
         <img src={course_thumb} alt="Album" />
       </figure>
@@ -47,7 +53,15 @@ const CourseDit = () => {
           : {rating}
         </p>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Download PDF</button>
+          <Pdf targetRef={ref} filename="code-example.pdf">
+            {({ toPdf }) => (
+              <button onClick={toPdf} className="btn btn-primary">
+                Download PDF
+              </button>
+            )}
+            {/* <button className="btn btn-primary">Download PDF</button> */}
+          </Pdf>
+
           <Link to={`/checkout/${id}`} className="btn btn-primary">
             Get Premium Access
           </Link>

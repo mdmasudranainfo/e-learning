@@ -55,7 +55,9 @@ const router = createBrowserRouter([
         path: "/courses/:id",
         element: <CourseDit></CourseDit>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/data/${params.id}`),
+          fetch(
+            `https://assignment-10-server-blond.vercel.app/data/${params.id}`
+          ),
       },
       {
         path: "/checkout/:id",
@@ -65,7 +67,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/data/${params.id}`),
+          fetch(
+            `https://assignment-10-server-blond.vercel.app/data/${params.id}`
+          ),
       },
     ],
   },

@@ -7,7 +7,7 @@ import SingleCourse from "../SingleCourse/SingleCourse";
 const Course = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/data")
+    fetch("https://assignment-10-server-blond.vercel.app/data")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
