@@ -8,6 +8,9 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  GoogleAuthProvider,
+  signInWithPopup,
+  GithubAuthProvider,
 } from "firebase/auth";
 import app from "../Firebase/Firebase.init";
 import { useEffect } from "react";
@@ -17,6 +20,9 @@ import { useEffect } from "react";
 //
 //
 export const AuthContext = createContext();
+
+const gProvider = new GoogleAuthProvider();
+const gitProvider = new GithubAuthProvider();
 
 const auth = getAuth(app);
 
@@ -41,6 +47,15 @@ const UserContex = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
   //
+  // login gooogle
+  const googleLogin = () => {
+    return signInWithPopup(auth, gProvider);
+  };
+  //
+  // github login
+  const githubLogin = () => {
+    return signInWithPopup(auth, gitProvider);
+  };
   // crrent user track
   useEffect(() => {
     onAuthStateChanged(auth, (currentUSer) => {
@@ -55,7 +70,15 @@ const UserContex = ({ children }) => {
     return signOut(auth);
   };
 
-  const userInfo = { user, logOut, Register, loginUser, updateName };
+  const userInfo = {
+    googleLogin,
+    user,
+    logOut,
+    Register,
+    loginUser,
+    updateName,
+    githubLogin,
+  };
   return (
     <div>
       <AuthContext.Provider value={userInfo}>

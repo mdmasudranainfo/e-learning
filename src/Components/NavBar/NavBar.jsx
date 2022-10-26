@@ -111,10 +111,10 @@ const NavBar = () => {
         <div className="navbar-end">
           {user ? (
             <div className="dropdown dropdown-left">
-              <label tabIndex={0} className="btn m-1">
+              <label tabIndex={0} className="btn bg-white m-1">
                 <img
                   src={user?.photoURL}
-                  className="object-cover w-full h-full rounded-t"
+                  className="object-cover w-full h-full rounded-full"
                   alt="Plan"
                 />
               </label>

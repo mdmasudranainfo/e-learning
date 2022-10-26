@@ -5,6 +5,7 @@ import Blog from "./Components/Blog/Blog";
 import CheckOut from "./Components/CheckOut/CheckOut";
 import CourseDit from "./Components/CourseDit/CourseDit";
 import Course from "./Components/Courses/Course";
+import ErrorPage from "./Components/ErrorPage/ErrorPage";
 import FaQ from "./Components/FAq/FaQ";
 import Home from "./Components/Home/Home";
 import Main from "./Components/Layout/Main";
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5000/data/${params.id}`),
       },
     ],
+  },
+  {
+    path: "*",
+    element: <ErrorPage></ErrorPage>,
   },
 ]);
 

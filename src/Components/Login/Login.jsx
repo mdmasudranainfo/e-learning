@@ -3,9 +3,10 @@ import { useContext } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/UserContex";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const Login = () => {
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, googleLogin, githubLogin } = useContext(AuthContext);
   //
   const Navigate = useNavigate();
   let location = useLocation();
@@ -37,6 +38,28 @@ const Login = () => {
         // ..
       });
     console.log(email, password);
+  };
+
+  const google = () => {
+    googleLogin().then((result) => {
+      // The signed-in user info.
+      const user = result.user;
+      Navigate(from, { replace: true });
+      // ...
+    });
+    //
+  };
+  const githubSing = () => {
+    githubLogin()
+      .then((result) => {
+        // console.log(result.user);
+        Navigate(from, { replace: true });
+        toast.success("Successfully Login!");
+      })
+      .catch((error) => {
+        // console.log(error.message);
+        toast.error(error.message);
+      });
   };
   return (
     <div>
@@ -79,6 +102,14 @@ const Login = () => {
               </div>
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Login</button>
+              </div>
+              <div className=" flex justify-center gap-4">
+                <span onClick={google}>
+                  <FaGoogle className="text-2xl text-red-500 cursor-pointer"></FaGoogle>
+                </span>
+                <span onClick={githubSing}>
+                  <FaGithub className="text-2xl text-blue-500 cursor-pointer"></FaGithub>
+                </span>
               </div>
             </form>
           </div>
