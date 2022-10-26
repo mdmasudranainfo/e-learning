@@ -12,6 +12,11 @@ const Course = () => {
       .then((data) => setData(data));
   }, []);
 
+  //
+  if (!data) {
+    return <div>loading..</div>;
+  }
+
   return (
     <div className="grid lg:grid-cols-3 sm:grid-cols-1 md:mx-4  container mx-auto">
       <div className="">
