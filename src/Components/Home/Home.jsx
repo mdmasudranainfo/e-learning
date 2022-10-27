@@ -14,9 +14,8 @@ const Home = () => {
         <div className="max-w-md">
           <h1 className="mb-5 text-5xl text-white font-bold">Hello Learner</h1>
           <p className="mb-5 text-white">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+            Take one of E Learning range of courses and learn how to code using
+            this incredibly useful language.
           </p>
           <Link to="/courses" className="btn btn-primary">
             Get Started
